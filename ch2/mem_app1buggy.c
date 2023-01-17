@@ -28,6 +28,7 @@
 
 int main(int argc, char **argv)
 {
+	(void)argv;
 	void *ptr = NULL;
 	void *dest, *src = "abcdef0123456789";
 	void *arbit_addr = (void *)0xffffffffff601000;
