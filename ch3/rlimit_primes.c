@@ -34,7 +34,7 @@ static void simple_primegen(int limit)
 {
 	int i, j, num = 2, isprime;
 
-	printf("  2,  3, ");
+	printf("     2,      3, ");
 	for (i = 4; i <= limit; i++) {
 		isprime = 1;
 		for (j = 2; j < limit / 2; j++) {
