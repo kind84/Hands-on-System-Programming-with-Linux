@@ -31,6 +31,7 @@ CB_FILES := *.[ch]
 
 common.o: ../common.c ../common.h
 	${CC} ${CFLAGS} -c ../common.c -o common.o
+common.o32: ../common.c ../common.h
 	${CC} ${CFLAGS} -m32 -c ../common.c -o common32.o
 common_arm.o: ../common.c ../common.h
 	${CCARM} ${CFLAGS} -c ../common.c -o common_arm.o
@@ -39,6 +40,7 @@ common_dbg.o: ../common.c ../common.h
 
 mallocmax: common.o mallocmax.o
 	${CC} ${CFLAGS} -o mallocmax mallocmax.c common.o -lm
+mallocmax32: common.o32 mallocmax.o
 	${CC} ${CFLAGS} -m32 -o mallocmax32 mallocmax.c common32.o -lm
 mallocmax_dbg.o: mallocmax.c
 	${CC} ${CFLAGS_DBG} -c mallocmax.c -o mallocmax_dbg.o
