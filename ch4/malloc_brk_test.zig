@@ -21,7 +21,7 @@ fn alloctest(index: usize, num: usize) !void {
     var sbrk = std.os.linux.syscall1(std.os.linux.syscalls.X64.brk, 0);
 
     print("{d:2}: malloc({d:8}) = ", .{ index, num });
-    print("{x:>22} ", .{@ptrToInt(slc.ptr)});
+    print("{x:>22} ", .{@intFromPtr(slc.ptr)});
     print("          {x} [{d}]\n", .{ sbrk, (sbrk - init_brk) });
 }
 

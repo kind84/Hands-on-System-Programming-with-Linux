@@ -3,7 +3,7 @@ const std = @import("std");
 pub fn main() !void {
     var src = "abcdef0123456789";
     var dest: [*]u8 = undefined;
-    var arbit_addr = @intToPtr([*]u8, 0xffffffffff601000);
+    var arbit_addr: [*]u8 = @ptrFromInt(0xffffffffff601000);
 
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     const allocator = gpa.allocator();
@@ -25,5 +25,5 @@ pub fn main() !void {
     } else {
         dest = arbit_addr; // bug!
     }
-    @memcpy(dest, src, src.len);
+    @memcpy(dest, src);
 }

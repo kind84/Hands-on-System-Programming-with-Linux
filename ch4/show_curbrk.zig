@@ -32,7 +32,7 @@ pub fn main() !void {
     if (malloc.alloc(u8, num)) |slc| {
         var cur_brk = std.os.linux.syscall1(std.os.linux.syscalls.X64.brk, 0);
         defer malloc.free(slc);
-        print("malloc({d}) =             0x{x}\ncurr break =             0x{x}\n", .{ num, @ptrToInt(slc.ptr), cur_brk });
+        print("malloc({d}) =             0x{x}\ncurr break =             0x{x}\n", .{ num, @intFromPtr(slc.ptr), cur_brk });
     } else |err| {
         print("malloc failed! {any}\n", .{err});
     }

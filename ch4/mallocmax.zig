@@ -54,7 +54,7 @@ fn negativeMalloc() !void {
     var a: i64 = 60;
     var b: i64 = 1024;
     var i64_num2alloc = @mulWithOverflow(a, b)[0];
-    sd_num2alloc = @truncate(i16, i64_num2alloc);
+    sd_num2alloc = @truncate(i64_num2alloc);
     // slice = try malloc.alloc(u8, sd_num2alloc); // error: expected type 'usize', found 'i16'
     // print("4. i64 used:    malloc({d}) returns {*}\n", .{ sd_num2alloc, slice });
     // malloc.free(slice);
